@@ -12,7 +12,7 @@ import java.util.List;
 import static io.restassured.RestAssured.*;
 import static org.testng.Assert.*;
 
-public class HrApiTestsWithPath {
+public class HRApiTestsWithPath {
 
     @BeforeClass
     public void setUpClass(){

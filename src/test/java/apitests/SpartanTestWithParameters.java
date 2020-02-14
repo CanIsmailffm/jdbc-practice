@@ -23,7 +23,6 @@ public class SpartanTestWithParameters {
 
     }
 
-
     /*Given no headers provided
         When Users sends GET request to /api/hello
         Then response status code should be 200
@@ -105,6 +104,7 @@ public class SpartanTestWithParameters {
     @Test
     public void PositiveQueryParamTest(){
         Response response = given().accept(ContentType.JSON)
+                //static way
                 .when().get("/spartans/search?gender=Female&nameContains=e");
 
         assertEquals(response.statusCode(),200)        ;
@@ -117,6 +117,7 @@ public class SpartanTestWithParameters {
     public void PositiveQueryParamTest2(){
         Response response = given().accept(ContentType.JSON)
                 .and()
+                // dynamic way
                 .queryParam("gender","Female")
                 .queryParam("nameContains","e")
                 .when().get("/spartans/search");

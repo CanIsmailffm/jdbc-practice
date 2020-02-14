@@ -12,7 +12,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.*;
 import static org.testng.Assert.*;
-public class SpartanTestWithPath {
+public class  SpartanTestWithPath {
 
     @BeforeClass
     public void setUpClass(){

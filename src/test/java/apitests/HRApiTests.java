@@ -32,6 +32,7 @@ public class HRApiTests {
     public void getAllRegionsTest(){
         Response response = when().get(hrbaseurl + "/regions");
 
+
         System.out.println("Status code:"+response.statusCode());
         System.out.println("Content Type:"+response.contentType());
         System.out.println(response.prettyPrint());
