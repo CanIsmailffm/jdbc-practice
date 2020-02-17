@@ -16,6 +16,7 @@ public class HRApiTestsWithPath {
 
     @BeforeClass
     public void setUpClass(){
+        // static import edince restAssured u baseURI nin basina yazmaya gerek yok
         baseURI = ConfigurationReader.get("hrapi.uri");
     }
 

@@ -23,9 +23,7 @@ public class HRApiTestWithParameters {
         Then status code is 200
         And Content type is application/json
         And Payload should contain "United States of America"
-
      */
-
     @Test
     public void countriesWithQueryParam(){
         Response response = given().accept(ContentType.JSON).and()
