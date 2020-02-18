@@ -29,7 +29,7 @@ public class POJO_deserialize {
         //taking response and converting to Spartan object
         Spartan spartan15 = response.body().as(Spartan.class);
 
-        System.out.println("spartan1.toString() = " + spartan15.toString());
+        System.out.println("spartan1.toString() = " + spartan15.toString()); // create also toString method in Spartan class. like getter setter
 
         System.out.println("spartan15.getId() = " + spartan15.getId());
         System.out.println("spartan15.getName() = " + spartan15.getName());
@@ -71,13 +71,14 @@ public class POJO_deserialize {
 
     @Test
     public void GsonExample(){
-
+            // ----------------simulation of serialization and deserialization---------------------------
         //creating gson object
         Gson gson = new Gson();
 
         //De-Serialize and serialize with gson object
         //Deseriailze -->JSON TO Java Object
 
+        // burasi string obj ögretmek icin create etti
         String myjson = "{\n" +
                 "    \"id\": 15,\n" +
                 "    \"name\": \"Meta\",\n" +
