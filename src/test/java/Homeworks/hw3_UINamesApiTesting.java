@@ -165,6 +165,7 @@ NOTE: Available region values are given in the documentation
 2. Verify status code 200, content type application/json; charset=utf-8
 3. Verify that all objects the response have the same region and gender passed in step 1
      */
+
     @Test
     public void threeParamsTest(){
         int parameterValue=4;
@@ -185,8 +186,9 @@ NOTE: Available region values are given in the documentation
                 }
         System.out.println("list2 = " + list2);
     }
+
     @Test
-    public void threeParamsTestR(){ // ramazan abi
+    public void threeParamsTestR(){  // ramazan abi
         ValidatableResponse body = given().accept(ContentType.JSON).and()
                 .queryParam("gender", "male")
                 .and().queryParam("region", "Germany")
@@ -198,8 +200,6 @@ NOTE: Available region values are given in the documentation
                         "region", hasItem("Germany"));
 
     }
-    
-
 
     /*
     Amount count test
@@ -209,6 +209,14 @@ NOTE: Available region values are given in the documentation
      */
     @Test
     public void amountCountTest(){
+        given().accept(ContentType.JSON)
+                .queryParam("amount",20)
+                .when().get("https://uinames.com/api?amount=20")
+                .then().assertThat().statusCode(200)
+                .contentType("application/json; charset=utf-8")
+                .body("amount",hasItem(20)); // number of objects returned in response ???
+
+
 
     }
 
