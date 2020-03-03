@@ -50,7 +50,7 @@ public class POJO_deserialize {
         assertEquals(response.statusCode(),200);
 
         //JSON to Region class
-        //Deserizaliton
+        //Deserialization --   as method converts from json to java
         Region regions = response.body().as(Region.class);
 
         System.out.println(regions.getCount());
@@ -92,7 +92,7 @@ public class POJO_deserialize {
         System.out.println("spartan15.getName() = " + spartan15.getName());
         System.out.println("spartan15.getPhone() = " + spartan15.getPhone());
         //-----------------------SERIALIZATION-------------
-        //Java object to JSON
+        //Java object to JSON, create constructor
         Spartan spartanEU = new Spartan(10,"Mike","Male",5714788554L);
         //it will take spartan eu information and convert to json
         String jsonSpartanEU = gson.toJson(spartanEU);

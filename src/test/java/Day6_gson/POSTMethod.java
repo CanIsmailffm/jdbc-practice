@@ -39,16 +39,22 @@ public class POSTMethod {
 
     @Test
     public void PostNewSpartan(){
+                    //for post method 2 times ContentType
+                            // hey api send me Json body (as response)
         Response response = given().accept(ContentType.JSON).
+                            // hey api i am sending you json body
                 and().contentType(ContentType.JSON)
+                // 1. sending json body as a string
+                // send this body to insert, to post.
                 .and().body("{\n" +
                         "  \"gender\": \"Male\",\n" +
                         "  \"name\": \"MikeEU\",\n" +
                         "  \"phone\": 5478783575\n" +
                         "}").when().post("/spartans");
 
-        //response validations
+        //response validations, 201 for creation
         assertEquals(response.statusCode(),201);
+        // verify response content type
         assertEquals(response.contentType(),"application/json");
 
         //verify response body
@@ -69,7 +75,7 @@ public class POSTMethod {
 
     }
 
-    //send body with map
+    //2.  body with map
 
     @Test
     public void PostNewSpartanWithMap(){
@@ -80,8 +86,13 @@ public class POSTMethod {
         requestMap.put("name","MikeEUMAP");
         requestMap.put("phone",5478783575L);
 
+        // 1 yil önce böyle yapiliyormus, buna gerek kalmadan direk requestMap i body e yaz
+        //Gson gson = new Gson();
+        //String requestMap = gson.toJson(requestMap);
+
         Response response = given().accept(ContentType.JSON).
                 and().contentType(ContentType.JSON)
+                //body does automatically serialization (it converts from java to json)
                 .and().body(requestMap).when().post("/spartans");
 
         //response validations
@@ -108,6 +119,7 @@ public class POSTMethod {
         //after post I want to send get request to new spartan
         given().pathParam("id",idFromPost)
                 .when().get("/spartans/{id}")
+                 // log all prints body and all infos from response
                 .then().assertThat().statusCode(200).log().all();
 
 
